@@ -21,8 +21,8 @@ builder.Services.AddCors(options => options.AddPolicy("AllowWebapp",
 // Add context
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-    //options.UseSqlite(builder.Configuration.GetConnectionString("SqliteDatabase"));
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("SqliteDatabase"));
 });
 
 var app = builder.Build();

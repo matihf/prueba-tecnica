@@ -48,9 +48,9 @@ namespace Backend.Migrations
                 columns: new[] { "Id", "DefeatId", "Name" },
                 values: new object[,]
                 {
-                    { 1, 3, "Rock" },
-                    { 2, 1, "Paper" },
-                    { 3, 2, "Scissors" }
+                    { 1, null, "Rock" },
+                    { 2, null, "Paper" },
+                    { 3, null, "Scissors" }
                 });
 
             migrationBuilder.CreateIndex(
