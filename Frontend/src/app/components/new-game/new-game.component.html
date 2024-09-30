@@ -1,0 +1,54 @@
+<div style="align-content: center;">
+@if (state == 0)
+{
+  <div class="container mt-5">
+    @if (winnerName != "")
+    {
+      <div class="w-100">
+        <h1>We have a WINNER!!</h1>
+        <h2>{{winnerName}} is the new Emperor</h2>
+      </div>
+    }
+    <div class="w-100 container">
+      <button mat-raised-button color="primary" (click)="newGame()" class="custom-button-big">
+        @if (winnerName === ""){
+          Play
+        }@else {
+          Play again
+        }
+      </button>
+      <button mat-raised-button color="primary" class="margin-left custom-button-big" routerLink="/listPlayers">Winning history</button>
+      <button mat-raised-button color="primary" class="margin-left custom-button-big" routerLink="/listMoves">Set rules</button>
+    </div>
+  </div>
+}
+@else if (state == 1)
+{
+  <app-add-player (emitNames)="savePlayersNames($event)" (emitCancel)="cancel()"></app-add-player>
+}
+@else if (state == 2)
+{
+  @if (this.player1Round === undefined)
+  {
+    <div>
+      <div>
+        <app-round [round]="round" [player]=player1 (emitMove)="savePlayerMove($event)" (emitCancel)="cancel()"></app-round>
+      </div>
+      <div class="mt-3">
+        <app-score [dataSource]="score" ></app-score>
+      </div>
+    </div>
+  }
+  @else
+  {
+    <div>
+      <div>
+        <app-round [round]="round" [player]=player2 (emitMove)="savePlayerMove($event)" (emitCancel)="cancel()"></app-round>
+      </div>
+      <div class="mt-3">
+        <app-score [dataSource]="score" ></app-score>
+      </div>
+    </div>
+  }
+}
+</div>

@@ -1,0 +1,20 @@
+.container2{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.margin-left{
+  margin-left: 10%;
+}
+
+.custom-button-big{
+  font-size: 24px;
+  padding: 30px 30px;
+}
